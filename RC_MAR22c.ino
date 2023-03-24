@@ -12,7 +12,7 @@ ESP8266WebServer server(port);
 
 // define L298N or L293D motor control pins
 int MotorForward = 0;   // GPIO0(D3) -> IN1 
-int MotorBackward = 2;  // GPIO2(D4) -> IN2  
+int MotorBackward = 14;  // GPIO14(D5) -> IN2
 
 // define L298N or L293D enable pins 
 int MotorENB = 4; // GPIO4(D2) -> Motor-A Enable 14
@@ -28,7 +28,7 @@ void setup() {
   // initialize motor enable pins as output
   pinMode(MotorENB, OUTPUT);
 
-  servo_1.attach(16); // Attaching Servo to D0
+  servo_1.attach(2); // Attaching Servo to D4 2
 
   Serial.begin(115200);
   Serial.print("Connecting to : ");
@@ -106,42 +106,42 @@ void handleActionRequest() {
   }
   String type = server.arg("type");
   if (type.equals("1")) {
-    motor_speed = 400;
+    motor_speed = 150;
     Serial.println("Mode: Action 1 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 1");
   }
   else if (type.equals("2")) {
-    motor_speed = 470;
+    motor_speed = 162;
     Serial.println("Mode: Action 2 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 2");
   }
   else if (type.equals("3")) {
-    motor_speed = 610;
+    motor_speed = 174;
     Serial.println("Mode: Action 3 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 3");
   }
   else if (type.equals("4")) {
-    motor_speed = 680;
+    motor_speed = 186;
     Serial.println("Mode: Action 4 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 4");
   }
   else if (type.equals("5")) {
-    motor_speed = 750;
+    motor_speed = 198;
     Serial.println("Mode: Action 5 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 5");
   }
   else if (type.equals("6")) {
-    motor_speed = 820;
+    motor_speed = 180;
     Serial.println("Mode: Action 6 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 6");
   }
   else if (type.equals("7")) {
-    motor_speed = 890;
+    motor_speed = 210;
     Serial.println("Mode: Action 7 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 7");
   }
   else if (type.equals("8")) {
-    motor_speed = 960;
+    motor_speed = 255;
     Serial.println("Mode: Action 8 and speed "+String(motor_speed));
     server.send(200, "text / plain", "Action 8");
   }
